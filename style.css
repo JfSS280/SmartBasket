@@ -1,0 +1,253 @@
+/* --- ESTILOS CSS MEJORADOS (style.css) --- */
+
+/* Importar Fuente de Google Fonts (Ejemplo: Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Reset básico y configuración general */
+* {
+    box-sizing: border-box; /* Mejor manejo de padding y border */
+}
+
+html {
+    scroll-behavior: smooth; /* ¡Para el scroll suave! */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Aplicar fuente importada */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff; /* Fondo blanco por defecto */
+}
+
+.container {
+    max-width: 1140px; /* Ancho máximo más común */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header y Navegación Mejorados */
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef; /* Borde más sutil */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegurar que esté por encima */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra sutil */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-weight: 700; /* Más grueso */
+    font-size: 1.8em;
+    color: #175eff; /* Azul más vibrante */
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 25px; /* Más espacio */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #495057; /* Gris oscuro */
+    font-weight: 600; /* Semi-negrita */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+nav ul li a:hover {
+    color: #175eff; /* Azul al pasar el mouse */
+}
+
+/* Botón CTA genérico */
+.cta-button {
+    display: inline-block; /* Para aplicar padding correctamente */
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px); /* Efecto sutil al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Botón CTA específico de Navegación */
+.nav-cta {
+    background-color: #175eff;
+    color: white;
+    border: 2px solid #175eff;
+}
+.nav-cta:hover {
+     background-color: #0045d8;
+     border-color: #0045d8;
+}
+
+
+/* Sección Héroe Mejorada */
+.hero {
+    background: linear-gradient(135deg, #e6f0ff 0%, #f4f8ff 100%); /* Degradado sutil */
+    padding: 100px 0; /* Más padding vertical */
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.hero h1 {
+    font-size: 3.5em; /* Más grande */
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #212529; /* Negro suave */
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #495057; /* Gris oscuro */
+    margin-bottom: 35px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Placeholder para la imagen/ilustración del héroe */
+.hero .hero-visual-placeholder {
+    background-color: #dee2e6;
+    width: 60%;
+    max-width: 500px;
+    height: 300px; /* Ajustar según la imagen real */
+    margin: 30px auto 40px auto;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Botón CTA específico del Héroe */
+.hero-cta {
+     background-color: #28a745; /* Verde */
+     color: white;
+     border: 2px solid #28a745;
+     font-size: 1.2em; /* Ligeramente más grande */
+}
+.hero-cta:hover {
+     background-color: #218838;
+     border-color: #218838;
+}
+
+/* --- ESTILOS BÁSICOS PARA OTRAS SECCIONES (Sin Cambios Mayores) --- */
+section {
+    padding: 70px 0; /* Más padding */
+    border-bottom: 1px solid #eee;
+}
+section:last-of-type { border-bottom: none; }
+
+section h2 {
+    text-align: center;
+    font-size: 2.2em; /* Ligeramente más grande */
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #343a40; /* Gris más oscuro */
+}
+
+/* Sección Beneficios (Layout básico Flex) */
+.benefits-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+.benefit-item { flex-basis: 220px; } /* Un poco más de espacio */
+.benefit-item .icon { font-size: 3em; margin-bottom: 15px; color: #175eff; }
+.benefit-item h3 { font-size: 1.3em; margin-bottom: 10px; font-weight: 600; }
+
+/* Sección Cómo Funciona (Layout básico Flex) */
+#como-funciona { background-color: #f8f9fa; } /* Fondo diferente */
+.how-it-works-steps { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; text-align: center; }
+.step { flex-basis: 280px; }
+.step .step-number { display: inline-block; width: 45px; height: 45px; line-height: 45px; border-radius: 50%; background-color: #175eff; color: white; font-weight: bold; font-size: 1.3em; margin-bottom: 20px; }
+.step h3 { font-size: 1.3em; margin-bottom: 10px; font-weight: 600; }
+
+/* Sección CTA Final */
+.final-cta { background-color: #e9ecef; text-align: center; }
+.final-cta h2 { margin-bottom: 20px;}
+.final-cta p { max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 30px; color: #495057;}
+/* Reutiliza estilos del botón .hero-cta si quieres el mismo botón verde */
+.final-cta .cta-button {
+     background-color: #28a745; /* Verde */
+     color: white;
+     border: 2px solid #28a745;
+     font-size: 1.1em;
+}
+.final-cta .cta-button:hover {
+     background-color: #218838;
+     border-color: #218838;
+}
+
+/* Footer Mejorado */
+footer {
+    background-color: #343a40;
+    color: #adb5bd; /* Gris más claro */
+    padding: 50px 0 30px 0; /* Más padding */
+    text-align: center;
+    font-size: 0.95em;
+}
+footer .footer-links {
+    margin-bottom: 25px;
+}
+footer .footer-links a {
+    color: #dee2e6; /* Casi blanco */
+    text-decoration: none;
+    margin: 0 12px;
+    transition: color 0.3s ease;
+}
+footer .footer-links a:hover {
+    color: #fff;
+}
+footer p {
+    margin-top: 20px;
+    color: #6c757d; /* Gris aún más claro */
+    font-size: 0.9em;
+}
+
+/* --- AÑADIR AQUÍ REGLAS PARA RESPONSIVIDAD (MEDIA QUERIES) --- */
+/* Ejemplo básico para ajustar el grid de beneficios en móviles */
+@media (max-width: 768px) {
+    nav ul {
+        /* Aquí iría la lógica para ocultar el menú normal y mostrar un botón hamburguesa (requiere JS) */
+        /* Por ahora, podemos hacer que los items se espacien menos o se oculten */
+        display: none; /* Ocultar menú en pantallas pequeñas (solución simple sin JS) */
+    }
+    .hero h1 { font-size: 2.5em; }
+    .hero p { font-size: 1em; }
+    .benefits-grid, .how-it-works-steps {
+        flex-direction: column; /* Apilar verticalmente */
+        align-items: center;
+    }
+    .benefit-item, .step {
+        flex-basis: 80%; /* Ocupar más ancho */
+        margin-bottom: 30px;
+    }
+    section h2 { font-size: 1.8em;}
+}

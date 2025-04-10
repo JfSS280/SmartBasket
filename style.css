@@ -5,37 +5,39 @@
 
 /* Reset básico y configuración general */
 * {
-    box-sizing: border-box; /* Mejor manejo de padding y border */
+    box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth; /* ¡Para el scroll suave! */
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Aplicar fuente importada */
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #333;
-    background-color: #fff; /* Fondo blanco por defecto */
+    color: #343a40; /* Gris oscuro principal */
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased; /* Mejor renderizado de fuentes */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    max-width: 1140px; /* Ancho máximo más común */
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header y Navegación Mejorados */
+/* --- Header y Navegación --- */
 header {
     background-color: #fff;
     padding: 15px 0;
-    border-bottom: 1px solid #e9ecef; /* Borde más sutil */
+    border-bottom: 1px solid #e9ecef;
     position: sticky;
     top: 0;
-    z-index: 1000; /* Asegurar que esté por encima */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra sutil */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 nav {
@@ -45,9 +47,9 @@ nav {
 }
 
 nav .logo {
-    font-weight: 700; /* Más grueso */
+    font-weight: 700;
     font-size: 1.8em;
-    color: #175eff; /* Azul más vibrante */
+    color: #175eff;
     text-decoration: none;
 }
 
@@ -60,166 +62,242 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 25px; /* Más espacio */
+    margin-left: 30px; /* Un poco más de espacio */
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #495057; /* Gris oscuro */
-    font-weight: 600; /* Semi-negrita */
-    transition: color 0.3s ease; /* Transición suave */
+    color: #495057;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #175eff; /* Azul al pasar el mouse */
+    color: #175eff;
 }
 
-/* Botón CTA genérico */
+/* --- Botones CTA --- */
 .cta-button {
-    display: inline-block; /* Para aplicar padding correctamente */
-    padding: 10px 22px;
+    display: inline-block;
+    padding: 10px 24px; /* Ajuste de padding */
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     cursor: pointer;
     text-align: center;
+    border: none; /* Quitar borde por defecto si es un <button> */
 }
 
 .cta-button:hover {
-    transform: translateY(-2px); /* Efecto sutil al pasar el mouse */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Sombra más pronunciada */
 }
 
-/* Botón CTA específico de Navegación */
+/* Botón CTA Navegación */
 .nav-cta {
     background-color: #175eff;
     color: white;
-    border: 2px solid #175eff;
 }
 .nav-cta:hover {
      background-color: #0045d8;
-     border-color: #0045d8;
+}
+
+/* Botón CTA Héroe y Final (Verde) */
+.hero-cta,
+.final-cta .cta-button { /* Aplicar a ambos */
+     background-color: #28a745;
+     color: white;
+     font-size: 1.15em; /* Ligeramente más grande */
+     padding: 12px 28px;
+}
+.hero-cta:hover,
+.final-cta .cta-button:hover {
+     background-color: #218838;
 }
 
 
-/* Sección Héroe Mejorada */
+/* --- Sección Héroe --- */
 .hero {
-    background: linear-gradient(135deg, #e6f0ff 0%, #f4f8ff 100%); /* Degradado sutil */
-    padding: 100px 0; /* Más padding vertical */
+    background: #f8f9fa; /* Un fondo sólido claro es más simple a veces */
+    padding: 100px 0 60px 0; /* Ajustar padding */
     text-align: center;
     border-bottom: 1px solid #e9ecef;
+    overflow: hidden; /* Evitar desbordes */
 }
 
 .hero h1 {
-    font-size: 3.5em; /* Más grande */
+    font-size: 3.2em; /* Ajustar tamaño */
     font-weight: 700;
     margin-bottom: 20px;
-    color: #212529; /* Negro suave */
-    line-height: 1.2;
+    color: #212529;
+    line-height: 1.3; /* Mejor interlineado */
 }
 
 .hero p {
-    font-size: 1.2em;
-    color: #495057; /* Gris oscuro */
-    margin-bottom: 35px;
-    max-width: 650px;
+    font-size: 1.15em;
+    color: #495057;
+    margin-bottom: 40px; /* Más espacio antes de la imagen */
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Placeholder para la imagen/ilustración del héroe */
-.hero .hero-visual-placeholder {
-    background-color: #dee2e6;
-    width: 60%;
-    max-width: 500px;
-    height: 300px; /* Ajustar según la imagen real */
-    margin: 30px auto 40px auto;
+/* Placeholder Visual Hero */
+.hero-visual {
+    max-width: 90%; /* Hacerlo un poco más pequeño que el contenedor */
+    height: auto;
+    display: block;
+    margin: 40px auto 50px auto; /* Más espacio vertical */
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6c757d;
-    font-style: italic;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08); /* Sombra sutil */
 }
 
-/* Botón CTA específico del Héroe */
-.hero-cta {
-     background-color: #28a745; /* Verde */
-     color: white;
-     border: 2px solid #28a745;
-     font-size: 1.2em; /* Ligeramente más grande */
-}
-.hero-cta:hover {
-     background-color: #218838;
-     border-color: #218838;
-}
-
-/* --- ESTILOS BÁSICOS PARA OTRAS SECCIONES (Sin Cambios Mayores) --- */
+/* --- Estilos Comunes de Sección --- */
 section {
-    padding: 70px 0; /* Más padding */
-    border-bottom: 1px solid #eee;
+    padding: 80px 0; /* Padding estándar para secciones */
+    border-bottom: 1px solid #e9ecef;
 }
-section:last-of-type { border-bottom: none; }
+section:last-of-type { border-bottom: none; } /* Quitar borde a la última */
+#como-funciona { background-color: #f8f9fa; } /* Fondo alterno */
 
 section h2 {
     text-align: center;
-    font-size: 2.2em; /* Ligeramente más grande */
+    font-size: 2.5em;
     font-weight: 700;
-    margin-bottom: 50px;
-    color: #343a40; /* Gris más oscuro */
+    margin-bottom: 60px; /* Más espacio debajo del título */
+    color: #343a40;
 }
 
-/* Sección Beneficios (Layout básico Flex) */
+/* --- Sección Beneficios --- */
 .benefits-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px; /* Espacio entre tarjetas */
+    text-align: center;
+}
+
+.benefit-item {
+    flex-basis: 240px; /* Ancho base */
+    background-color: #fff;
+    padding: 30px 25px; /* Más padding interno */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-6px); /* Levantar más al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Placeholder Icono Beneficio */
+.benefit-icon {
+    display: block;
+    width: 70px; /* Tamaño del placeholder */
+    height: 70px;
+    margin: 0 auto 25px auto; /* Más espacio debajo */
+    border-radius: 50%;
+    background-color: #e9ecef; /* Fondo del placeholder */
+    line-height: 70px; /* Para centrar texto si placehold.co falla */
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.8em; /* Texto dentro del placeholder */
+}
+
+.benefit-item h3 {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #343a40;
+}
+
+.benefit-item p {
+    font-size: 0.95em;
+    color: #6c757d; /* Gris más claro para el texto */
+}
+
+
+/* --- Sección Cómo Funciona --- */
+.how-it-works-steps {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
     text-align: center;
-}
-.benefit-item { flex-basis: 220px; } /* Un poco más de espacio */
-.benefit-item .icon { font-size: 3em; margin-bottom: 15px; color: #175eff; }
-.benefit-item h3 { font-size: 1.3em; margin-bottom: 10px; font-weight: 600; }
-
-/* Sección Cómo Funciona (Layout básico Flex) */
-#como-funciona { background-color: #f8f9fa; } /* Fondo diferente */
-.how-it-works-steps { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; text-align: center; }
-.step { flex-basis: 280px; }
-.step .step-number { display: inline-block; width: 45px; height: 45px; line-height: 45px; border-radius: 50%; background-color: #175eff; color: white; font-weight: bold; font-size: 1.3em; margin-bottom: 20px; }
-.step h3 { font-size: 1.3em; margin-bottom: 10px; font-weight: 600; }
-
-/* Sección CTA Final */
-.final-cta { background-color: #e9ecef; text-align: center; }
-.final-cta h2 { margin-bottom: 20px;}
-.final-cta p { max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 30px; color: #495057;}
-/* Reutiliza estilos del botón .hero-cta si quieres el mismo botón verde */
-.final-cta .cta-button {
-     background-color: #28a745; /* Verde */
-     color: white;
-     border: 2px solid #28a745;
-     font-size: 1.1em;
-}
-.final-cta .cta-button:hover {
-     background-color: #218838;
-     border-color: #218838;
+    counter-reset: step-counter; /* Para numeración si quisiéramos CSS puro */
 }
 
-/* Footer Mejorado */
+.step {
+    flex-basis: 300px;
+    position: relative; /* Para posibles decoraciones futuras */
+}
+
+.step .step-number {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background-color: #175eff;
+    color: white;
+    font-weight: 700; /* Más grueso */
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(23, 94, 255, 0.3); /* Sombra con color */
+}
+
+.step h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #343a40;
+}
+.step p {
+    font-size: 1em;
+    color: #6c757d;
+}
+
+
+/* --- Sección CTA Final --- */
+.final-cta {
+    background-color: #175eff; /* Fondo azul principal */
+    color: #fff; /* Texto blanco */
+    text-align: center;
+    padding: 80px 0; /* Más padding */
+    border-bottom: none; /* Asegurar que no tenga borde inferior */
+}
+.final-cta h2 {
+    color: #fff; /* Título blanco */
+    margin-bottom: 20px;
+}
+.final-cta p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+    color: #e9ecef; /* Blanco un poco más oscuro */
+    font-size: 1.1em;
+}
+/* El botón ya está estilizado por las reglas generales .cta-button y .hero-cta */
+
+
+/* --- Footer --- */
 footer {
-    background-color: #343a40;
-    color: #adb5bd; /* Gris más claro */
-    padding: 50px 0 30px 0; /* Más padding */
+    background-color: #212529; /* Negro más suave */
+    color: #adb5bd;
+    padding: 60px 0 40px 0;
     text-align: center;
     font-size: 0.95em;
 }
 footer .footer-links {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 footer .footer-links a {
-    color: #dee2e6; /* Casi blanco */
+    color: #dee2e6;
     text-decoration: none;
-    margin: 0 12px;
+    margin: 0 15px; /* Más espacio */
     transition: color 0.3s ease;
 }
 footer .footer-links a:hover {
@@ -227,27 +305,41 @@ footer .footer-links a:hover {
 }
 footer p {
     margin-top: 20px;
-    color: #6c757d; /* Gris aún más claro */
+    color: #6c757d;
     font-size: 0.9em;
 }
 
-/* --- AÑADIR AQUÍ REGLAS PARA RESPONSIVIDAD (MEDIA QUERIES) --- */
-/* Ejemplo básico para ajustar el grid de beneficios en móviles */
+
+/* --- Responsividad Básica --- */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 2.8em; }
+    .hero p { font-size: 1.1em; }
+    section h2 { font-size: 2.1em; }
+    .benefit-item { flex-basis: calc(50% - 40px); } /* 2 columnas en tablet */
+}
+
 @media (max-width: 768px) {
     nav ul {
-        /* Aquí iría la lógica para ocultar el menú normal y mostrar un botón hamburguesa (requiere JS) */
-        /* Por ahora, podemos hacer que los items se espacien menos o se oculten */
-        display: none; /* Ocultar menú en pantallas pequeñas (solución simple sin JS) */
+        display: none; /* Ocultar menú desktop (necesitaría JS para hamburguesa) */
     }
-    .hero h1 { font-size: 2.5em; }
+    .hero h1 { font-size: 2.2em; }
     .hero p { font-size: 1em; }
+    .hero .hero-visual { width: 80%; }
+    section { padding: 60px 0; }
+    section h2 { font-size: 1.9em; margin-bottom: 40px; }
     .benefits-grid, .how-it-works-steps {
-        flex-direction: column; /* Apilar verticalmente */
+        flex-direction: column;
         align-items: center;
+        gap: 30px;
     }
     .benefit-item, .step {
-        flex-basis: 80%; /* Ocupar más ancho */
-        margin-bottom: 30px;
+        flex-basis: 85%; /* Casi ancho completo */
+        max-width: 350px; /* Evitar que sea demasiado ancho */
+        margin-bottom: 25px;
     }
-    section h2 { font-size: 1.8em;}
+    .footer-links a {
+        margin: 0 8px; /* Menos espacio en footer */
+        display: inline-block; /* Evitar que se peguen mucho */
+        margin-bottom: 10px;
+    }
 }

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>SmartBasket - Tu Compra Inteligente</title>
+    <style>
+        /* --- ESTILOS CSS BÁSICOS (Punto de Partida) --- */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #2a7ef2;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Se ocultará en móvil */
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        nav .cta-button {
+            background-color: #2a7ef2;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em; /* Ligeramente más pequeño */
+        }
+
+        /* Sección Héroe */
+        .hero {
+            background-color: #f4f8ff;
+            padding: 60px 20px; /* Menos padding vertical inicial */
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5em; /* Tamaño base */
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.3; /* Ajustar interlineado */
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .cta-button {
+             background-color: #28a745;
+             color: white;
+             padding: 10px 20px; /* Ajustar padding */
+             border-radius: 5px;
+             text-decoration: none;
+             font-size: 1em; /* Ajustar tamaño */
+             font-weight: bold;
+             display: inline-block; /* Asegurar padding */
+             margin-top: 10px; /* Espacio por si acaso */
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 50px 0; /* Padding base */
+            border-bottom: 1px solid #eee;
+        }
+        section:last-of-type { border-bottom: none; }
+        #como-funciona { background-color: #f8f9fa; }
+
+        section h2 {
+            text-align: center;
+            font-size: 1.8em; /* Tamaño base h2 */
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* Sección Beneficios */
+        .benefits-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 25px; /* Espacio base */
+            text-align: center;
+        }
+        .benefit-item { flex-basis: 200px; }
+        .benefit-item .icon { font-size: 2.2em; margin-bottom: 15px; color: #2a7ef2; }
+        .benefit-item h3 { font-size: 1.15em; margin-bottom: 10px; }
+        .benefit-item p { font-size: 0.95em; } /* Texto un poco más pequeño */
+
+        /* Sección Cómo Funciona */
+        .how-it-works-steps { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 25px; text-align: center; }
+        .step { flex-basis: 250px; }
+        .step .step-number { display: inline-block; width: 35px; height: 35px; line-height: 35px; border-radius: 50%; background-color: #2a7ef2; color: white; font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
+        .step h3 { font-size: 1.15em; margin-bottom: 10px; }
+        .step p { font-size: 0.95em; }
+
+        /* Sección CTA Final */
+        .final-cta { background-color: #e9ecef; text-align: center; }
+        .final-cta h2 { margin-bottom: 20px;}
+        .final-cta p { max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 30px; color: #555;}
+        .final-cta .cta-button { background-color: #28a745; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 1em; font-weight: bold; display: inline-block;}
+
+        /* Footer */
+        footer { background-color: #343a40; color: #ccc; padding: 30px 0; text-align: center; font-size: 0.9em; }
+        footer a { color: #fff; text-decoration: none; margin: 0 10px; }
+        footer p { margin-top: 15px; color: #aaa; }
+
+        /* --- !! REGLAS PARA RESPONSIVIDAD !! --- */
+        /* Estilos para pantallas de 768px de ancho o menos (tablets/móviles) */
+        @media (max-width: 768px) {
+
+            /* Ocultar menú de navegación de escritorio */
+            nav ul {
+                display: none;
+            }
+            /* (Nota: para un menú funcional en móvil se necesitaría JavaScript) */
+
+            /* Ajustar tamaños de texto principales */
+            .hero h1 {
+                font-size: 1.8em; /* Más pequeño */
+            }
+             .hero p {
+                font-size: 1em;
+            }
+            section h2 {
+                font-size: 1.5em; /* Más pequeño */
+                margin-bottom: 30px;
+            }
+
+            /* Hacer que las columnas se apilen verticalmente */
+            .benefits-grid,
+            .how-it-works-steps {
+                flex-direction: column; /* Apilar */
+                align-items: center; /* Centrar items apilados */
+                gap: 30px; /* Espacio vertical entre items */
+            }
+
+            .benefit-item,
+            .step {
+                flex-basis: 85%; /* Permitir que ocupen más ancho */
+                max-width: 350px; /* Pero no demasiado */
+            }
+
+            /* Ajustar padding general de secciones */
+            section {
+                padding: 40px 0;
+            }
+            .hero {
+                padding: 50px 20px;
+            }
+
+            /* Ajustar botones si es necesario */
+             nav .cta-button {
+                 padding: 6px 12px;
+                 font-size: 0.85em;
+             }
+             .hero .cta-button, .final-cta .cta-button {
+                 padding: 9px 18px;
+                 font-size: 0.95em;
+             }
+        }
+
+         /* (Opcional) Ajustes adicionales para móviles muy pequeños */
+         @media (max-width: 480px) {
+            .container {
+                padding: 0 15px; /* Menos padding lateral */
+            }
+             .hero h1 {
+                 font-size: 1.6em;
+             }
+             section h2 {
+                 font-size: 1.3em;
+             }
+             nav .logo {
+                 font-size: 1.3em;
+             }
+         }
+
+    </style>
+</head>
+<body>
+
+    <header id="inicio">
+        <div class="container">
+            <nav>
+                <a href="#inicio" class="logo">SmartBasket</a>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#como-funciona">Cómo Funciona</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <a href="#" class="cta-button">Regístrate</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>SmartBasket: Tu compra inteligente, simple y local.</h1>
+                <p>Ahorra tiempo y dinero comparando precios de tus comercios cercanos en tiempo real. Gestiona tu lista y recibe todo con un clic.</p>
+                <a href="#" class="cta-button">Regístrate Gratis</a>
+            </div>
+        </section>
+
+        <section id="beneficios">
+            <div class="container">
+                <h2>¿Por qué elegir SmartBasket?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="icon">⏱️</div> <h3>Ahorra Tiempo Valioso</h3>
+                        <p>Olvídate de recorrer tiendas, pide todo desde un solo lugar.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon">💰</div> <h3>Controla tus Gastos</h3>
+                        <p>Compara precios actualizados y encuentra las mejores ofertas cerca tuyo.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon">❤️</div> <h3>Apoya al Comercio Local</h3>
+                        <p>Ayuda a crecer a las tiendas de tu barrio dándoles visibilidad digital.</p>
+                    </div>
+                     <div class="benefit-item">
+                        <div class="icon">🧠</div> <h3>Compra Inteligente</h3>
+                        <p>Deja que nuestra IA te sugiera productos y optimice tu lista.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona">
+             <div class="container">
+                <h2>Comprar nunca fue tan fácil</h2>
+                <div class="how-it-works-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Crea tu Lista</h3>
+                        <p>Escribe, dicta por voz (Alexa) o usa las sugerencias de la IA.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Compara y Elige</h3>
+                        <p>SmartBasket busca los mejores precios en tus tiendas cercanas.</p>
+                    </div>
+                    <div class="step">
+                         <div class="step-number">3</div>
+                        <h3>Confirma y Recibe</h3>
+                        <p>Paga online de forma segura y recibe tu pedido cómodamente.</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="contacto" class="final-cta">
+            <div class="container">
+                 <h2>¿Listo para revolucionar tus compras?</h2>
+                 <p>Únete a miles de usuarios y comercios que ya disfrutan de la compra inteligente.</p>
+                 <a href="#" class="cta-button">Empieza Ahora Gratis</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links"> <a href="#">Acerca de</a>
+                <a href="#">Para Comercios</a>
+                <a href="#">Contacto</a>
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <p>&copy; 2025 SmartBasket - Desarrollado por balestrieris. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
